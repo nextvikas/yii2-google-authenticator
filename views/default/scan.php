@@ -33,23 +33,3 @@ use yii\helpers\Html;
             </div>
         </div>
     </div>
-<style type="text/css">
-._ap {
-    font-style: italic;text-align: center;
-}
-._amd {
-    background: white; padding: 20px; box-shadow: 10px 10px 30px 5px #888888; margin-top: 100px;
-}
-._aform .form-control {
-    font-size: xx-large;width: 200px;border-radius: 0px;text-align: center;display: inline;color: #0275d8;
-}
-._aform .btn.btn-md.btn-primary {
-    width: 200px;border-radius: 0px;
-}
-._aform,._aform img {
-    text-align: center;
-}
-._amd h1 {
-    text-align: center;
-}
-</style>

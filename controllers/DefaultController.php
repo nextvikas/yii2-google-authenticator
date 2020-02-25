@@ -14,6 +14,8 @@ class DefaultController extends Controller
 {
 
 
+	public $layout = 'authenticator';
+
     public function behaviors()
     {
         return [

@@ -37,7 +37,7 @@ php yii migrate --migrationPath=@nextvikas/authenticator/migrations
 ```
 
 
-You can then access Nextvikas Google Authenticator through the following URL:
+You can then access Next Chat through the following URL:
 ```
 http://localhost/path/to/index.php?r=authenticator/default/scan
 ```
