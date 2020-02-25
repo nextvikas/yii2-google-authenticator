@@ -3,13 +3,12 @@ use yii\helpers\Html;
 ?>
     <div class="container">
         <div class="row">
-            <div class="col-md-6 offset-md-3"  style="background: white; padding: 20px; box-shadow: 10px 10px 5px #888888; margin-top: 100px;">
-                <h1>Time-Based Authentication</h1>
-                <p style="font-style: italic;text-align: center;">A Google Authenticator</p>
-                <?php //echo $Authenticator->getCode($_SESSION['auth_secret']); ?>
+            <div class="col-md-6 col-md-offset-3 _amd">
+                <h1>2 step Authentication</h1>
+                <p class="_ap">A Google Authenticator</p>
                 <hr>
                 <?= Html::beginForm(['/authenticator/default/scan'], 'POST'); ?>
-                    <div style="text-align: center;">
+                    <div class="_aform">
                         <?php if (Yii::$app->session->has('failed')): ?>
                             <div class="alert alert-danger" role="alert">
                                 <strong>Oh snap!</strong> Invalid Code.
@@ -22,11 +21,11 @@ use yii\helpers\Html;
                         if(isset($qrCodeUrl)) {
                         ?>
                             
-                            <img style="text-align: center;" class="img-fluid" src="<?php echo $qrCodeUrl ?>" alt="Verify this Google Authenticator"><br><br>
+                            <img class="img-fluid" src="<?php echo $qrCodeUrl ?>" alt="Verify this Google Authenticator"><br><br>
                         <?php } ?>
 
-                            <input type="text" class="form-control" name="code" placeholder="******" style="font-size: xx-large;width: 200px;border-radius: 0px;text-align: center;display: inline;color: #0275d8;"><br> <br>    
-                            <button type="submit" class="btn btn-md btn-primary" style="width: 200px;border-radius: 0px;">Verify</button>
+                            <input type="text" class="form-control" name="code" placeholder="******"><br> <br>    
+                            <button type="submit" class="btn btn-md btn-primary">Verify</button>
 
                     </div>
 
@@ -34,3 +33,23 @@ use yii\helpers\Html;
             </div>
         </div>
     </div>
+<style type="text/css">
+._ap {
+    font-style: italic;text-align: center;
+}
+._amd {
+    background: white; padding: 20px; box-shadow: 10px 10px 30px 5px #888888; margin-top: 100px;
+}
+._aform .form-control {
+    font-size: xx-large;width: 200px;border-radius: 0px;text-align: center;display: inline;color: #0275d8;
+}
+._aform .btn.btn-md.btn-primary {
+    width: 200px;border-radius: 0px;
+}
+._aform,._aform img {
+    text-align: center;
+}
+._amd h1 {
+    text-align: center;
+}
+</style>
