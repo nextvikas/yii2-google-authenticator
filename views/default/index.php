@@ -9,13 +9,11 @@ use yii\helpers\Html;
                 <hr>
                 <?= Html::beginForm(['/authenticator/default/check'], 'POST'); ?>
                     <div class="_aform">
-                        <?php if (Yii::$app->session->has('failed')): ?>
+                        <?php 
+                        if (Yii::$app->session->getFlash('error')): ?>
                             <div class="alert alert-danger" role="alert">
-                                <strong>Oh snap!</strong> Invalid Code.
+                                <strong>Oh snap!</strong> <?=Yii::$app->session->getFlash('error') ?>
                             </div>
-                            <?php   
-                                Yii::$app->session->remove('failed');
-                            ?>
                         <?php endif; ?>
 
                             <input type="text" class="form-control" name="code" placeholder="******"><br> <br>    

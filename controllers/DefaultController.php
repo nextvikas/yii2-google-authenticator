@@ -44,10 +44,8 @@ class DefaultController extends Controller
 			$checkResult = $Authenticator->verifyCode(Yii::$app->session->get('auth_secret'), Yii::$app->request->post('code'), 2);
 
 			if (!$checkResult) {
-
-			    Yii::$app->session->set('failed', true);
+			    Yii::$app->session->setFlash('error', "Invalid Google Authenticator Code");
 			    return $this->redirect(['/authenticator/default/scan']);
-
 			} else {
 
 				$user = User::findOne(Yii::$app->user->identity->id);
@@ -76,7 +74,7 @@ class DefaultController extends Controller
 			$checkResult = $Authenticator->verifyCode(Yii::$app->user->identity->authenticator, Yii::$app->request->post('code'), 2);
 
 			if (!$checkResult) {
-			    Yii::$app->session->set('failed', true);
+			    Yii::$app->session->setFlash('error', "Invalid Google Authenticator Code");
 			    return $this->redirect(['/authenticator/default/scan']);
 			} else {
 				Yii::$app->session->set('varify_next_authenticator',true);

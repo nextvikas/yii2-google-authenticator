@@ -9,13 +9,10 @@ use yii\helpers\Html;
                 <hr>
                 <?= Html::beginForm(['/authenticator/default/scan'], 'POST'); ?>
                     <div class="_aform">
-                        <?php if (Yii::$app->session->has('failed')): ?>
+                        <?php if (Yii::$app->session->getFlash('error')): ?>
                             <div class="alert alert-danger" role="alert">
-                                <strong>Oh snap!</strong> Invalid Code.
+                                <strong>Oh snap!</strong> <?=Yii::$app->session->getFlash('error') ?>
                             </div>
-                            <?php   
-                                Yii::$app->session->remove('failed');
-                            ?>
                         <?php endif;
 
                         if(isset($qrCodeUrl)) {
