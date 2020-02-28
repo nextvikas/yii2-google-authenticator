@@ -75,7 +75,7 @@ class DefaultController extends Controller
 
 			if (!$checkResult) {
 			    Yii::$app->session->setFlash('error', "Invalid Google Authenticator Code");
-			    return $this->redirect(['/authenticator/default/scan']);
+			    return $this->redirect(['/authenticator']);
 			} else {
 				Yii::$app->session->set('varify_next_authenticator',true);
 				return $this->redirect(['/']);
