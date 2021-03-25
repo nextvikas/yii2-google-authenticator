@@ -3,7 +3,7 @@ namespace nextvikas\authenticator\migrations;
 
 class Migration extends \yii\db\Migration
 {
-    const TABLE_USER = 'user';
+    const TABLE_USER = 'admin';
 
     public function getTableOptions()
     {
