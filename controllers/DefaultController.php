@@ -48,7 +48,7 @@ class DefaultController extends Controller
 			    return $this->redirect(['/authenticator/default/scan']);
 			} else {
 
-				$user = User::findOne(Yii::$app->user->identity->id);
+				$user = Admin::findOne(Yii::$app->admin->identity->id);
 				$user->authenticator = Yii::$app->session->get('auth_secret');
 				$user->save(false);
 
@@ -62,7 +62,7 @@ class DefaultController extends Controller
 		    $secret = $Authenticator->generateRandomSecret();
 		    Yii::$app->session->set('auth_secret', $secret);
 		}
-		$qrCodeUrl = $Authenticator->getQR('Nextvikas ('.Yii::$app->user->identity->email.')', Yii::$app->session->get('auth_secret'));
+		$qrCodeUrl = $Authenticator->getQR('Nextvikas ('.Yii::$app->admin->identity->email.')', Yii::$app->session->get('auth_secret'));
 
         return $this->render('scan', ['qrCodeUrl' => $qrCodeUrl]);
     }
@@ -71,7 +71,7 @@ class DefaultController extends Controller
 		$Authenticator = new Authenticator();
 
 		if(Yii::$app->request->isPost) {
-			$checkResult = $Authenticator->verifyCode(Yii::$app->user->identity->authenticator, Yii::$app->request->post('code'), 2);
+			$checkResult = $Authenticator->verifyCode(Yii::$app->admin->identity->authenticator, Yii::$app->request->post('code'), 2);
 
 			if (!$checkResult) {
 			    Yii::$app->session->setFlash('error', "Invalid Google Authenticator Code");
