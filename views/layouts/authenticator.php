@@ -20,7 +20,7 @@ $assets = AuthenticatorAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<?= $content ?>
+<?php echo $content; ?>
 
 <?php $this->endBody() ?>
 </body>
