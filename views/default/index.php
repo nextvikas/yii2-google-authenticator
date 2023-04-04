@@ -7,12 +7,12 @@ use yii\helpers\Html;
                 <h1>2 step Authentication</h1>
                 <p class="_ap">Enter Your Google Authenticator Code</p>
                 <hr>
-                <?= Html::beginForm(['/authenticator/default/check'], 'POST'); ?>
+                <?php echo Html::beginForm(['/authenticator/default/check'], 'POST'); ?>
                     <div class="_aform">
                         <?php 
                         if (Yii::$app->session->getFlash('error')): ?>
                             <div class="alert alert-danger" role="alert">
-                                <strong>Oh snap!</strong> <?=Yii::$app->session->getFlash('error') ?>
+                                <strong>Oh snap!</strong> <?php echo Yii::$app->session->getFlash('error') ?>
                             </div>
                         <?php endif; ?>
 
@@ -20,7 +20,7 @@ use yii\helpers\Html;
                             <button type="submit" class="btn btn-md btn-primary">Verify</button>
 
                     </div>
-                <?= Html::endForm(); ?>
+                <?php echo Html::endForm(); ?>
             </div>
         </div>
     </div>
