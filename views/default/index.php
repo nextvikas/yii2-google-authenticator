@@ -12,7 +12,7 @@ use yii\helpers\Html;
                         <?php 
                         if (Yii::$app->session->getFlash('error')): ?>
                             <div class="alert alert-danger" role="alert">
-                                <strong>Oh snap!</strong> <?php echo Yii::$app->session->getFlash('error') ?>
+                                <strong>Oh snap!</strong> <?php echo Yii::$app->session->getFlash('error'); ?>
                             </div>
                         <?php endif; ?>
 
