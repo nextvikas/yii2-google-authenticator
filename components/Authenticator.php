@@ -80,7 +80,7 @@ class Authenticator extends Component
             $urlencoded .= urlencode('&issuer='.urlencode($title));
         }
 
-        return 'https://chart.googleapis.com/chart?chs='.$width.'x'.$height.'&chld='.$level.'|0&cht=qr&chl='.$urlencoded.'';
+        return 'https://quickchart.io/chart?chs='.$width.'x'.$height.'&chld='.$level.'|0&cht=qr&chl='.$urlencoded.'';
     }
 
     public function verifyCode($secret, $code, $discrepancy = 1, $currentTimeSlice = null)
