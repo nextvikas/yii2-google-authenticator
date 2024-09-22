@@ -1,3 +1,6 @@
+[![Total Downloads](https://img.shields.io/packagist/dt/nextvikas/yii2-google-authenticator.svg?logo=github&logoColor=white&style=flat-square)](https://packagist.org/packages/nextvikas/yii2-google-authenticator)
+
+
 # Installation
 Add to composer.json
 
